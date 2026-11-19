@@ -4,14 +4,11 @@ body {
   margin: 0;
 }
 
-html {
-  font-size: 16px;
-}
 * {
   box-sizing: border-box;
 }
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 5vw, 3rem); /* მინიმუმი 559px , მაქსიმუმი 961 */
   margin: 0;
 }
 h2 {
@@ -20,62 +17,72 @@ h2 {
 }
 header {
   background-color: rgb(250, 222, 185);
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 99;
+  width: 100%;
+
+  padding: 1rem;
+
+  display: grid;
 }
 nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 header ul {
   display: flex;
   list-style-type: none;
-  gap: 5px;
+
   color: cadetblue;
   font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+header ul li {
+  width: 15%;
+  font-size: 0.8rem;
+}
+header ul li {
+  min-height: 2.75rem;
 }
 main {
   background-color: rgb(255, 199, 125);
   /* min-width: 90%; */
 }
 
-.GoUp {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 2;
-}
 .InfoSection {
   border: 3px solid rgb(56, 41, 1);
   border-radius: 10px;
-  height: 70vh;
-  margin: 10px 0px;
-  display: flex;
-  gap: 5px;
+  height: auto;
+  margin: 0.8rem 0rem;
+
+  padding: clamp(1rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 .InfoSectionLeftContainer {
   background-color: #80ff88;
   width: 60%;
   border: 1px solid black;
-  font-size: 25px;
+  font-size: 1rem;
   border-radius: 7px;
 }
 .InfoSectionRightContainer {
   background-color: #80b7ff;
   border: 1px solid black;
   border-radius: 7px;
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
 }
 /* რადგან em უყურებს მშობელ ელემენტის font-size თუ არ აქვს უყურებს მის მშობელ ელემენტს და ა.შ. */
-.InfoSectionLeftContainer p {
-  font-size: 1.2em;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 .Titlep {
   font-weight: bold;
@@ -83,21 +90,22 @@ main {
 }
 .PopularCourses {
   background-color: #cfcfcf;
-  padding: 15px;
+  padding: clamp(1rem, 4vw, 3rem);
   margin: 0 auto;
-  width: 90%;
-  max-width: 1100px;
+
+  width: min(100% - 2rem, 1100px);
 }
 .PopularCourses ul {
   list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 5rem;
   width: 100%;
   min-height: 700px;
 }
 .PopularCourses ul li {
-  width: 250px;
+  width: 80%;
   background-color: #999999;
   border: 3px solid #fc9da0;
   border-style: double;
@@ -109,95 +117,23 @@ main {
   justify-content: space-between;
   text-decoration: none;
 }
-.BadgeCard {
-  /* position: relative;  */
+.PopularCourses ul li img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
-.BadgeCard span {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+.WidthImg {
+  /* width: 600px !important; */
+  /* max-width: none !important; */
 }
-.card__name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #80ff88;
-}
-.FlexGrowLI {
-  /* flex-grow: 1; */
-  position: relative;
-  top: -100px;
-  left: -10px0;
-}
-.FLexShrinkLI {
-  /* flex-shrink: 3; */
-  position: static;
-  top: 20px;
-  left: 20px;
-}
-.FlexBasisLI {
-  /* flex-basis: 300px; */
+.GrowLi {
   width: 100% !important;
-}
-.OrderLI {
-  /* order: -1; */
-  height: 30vh;
-  width: 50vw;
-}
-img {
-  max-width: 200px;
-}
-
-.StackedCards {
-  height: 500px;
-  width: 100%;
-  background-color: #80ff88;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.StackedCards div {
-}
-.Card1 {
-  background-color: #999999;
-  /* position: relative; */
-  top: 10px;
-  left: 20px;
-  z-index: 2;
-  width: 25%;
-  height: 25%;
-}
-.Card2 {
-  background-color: #cfcfcf;
-  position: relative;
-  z-index: 3;
-  left: 50px;
-  width: 25%;
-  height: 25%;
-}
-.Overlay {
-  background-color: aqua;
-  position: absolute;
-  opacity: 0.2;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.Card3 {
-  background-color: #fc9da0;
-  position: relative;
-  right: 20px;
-  top: 15px;
-  width: 25%;
-  height: 25%;
+  /* width: 100vw !important; */
 }
 
 .FAQSection {
-  padding: 0.8rem;
+  padding: clamp(1rem, 4vw, 3rem);
   margin: 0.8rem 0;
-  height: 1000px;
+  height: auto;
 }
 a {
   font-size: 15px;
@@ -213,3 +149,35 @@ footer p {
   margin: 0 auto;
   font-size: 1rem;
 }
+
+/* 375px- ჰორიზონტალური სქროლი, გადასული ბარათები და ტექტსი, პატარა ტექტსი */
+
+@media (min-width: 760px) {
+  .PopularCourses ul {
+    grid-template-columns: 3fr 2fr;
+  }
+  header {
+    display: flex;
+  }
+  header ul {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: 3rem;
+  }
+  .PopularCourses ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .InfoSection {
+    display: flex;
+  }
+}
+/* მობილური (<=768) */
+/* ტაბლეტი (769-1023) */
+/* დესკტოპი (>=1024 */
+
+/* ai-უკეთ დალაგებულია ვიზუალურად და უკეთ წაკითხვადი ტექსტი*/
+/* ერთადერთი რითაც გავაუმჯობესე იყო რომ ნავიგაცია არ ეფარება სათაურს  */

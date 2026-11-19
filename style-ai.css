@@ -1,0 +1,337 @@
+/* Mobile-first base styles */
+:root {
+  --antique: antiquewhite;
+  --orange-bg: rgb(255, 199, 125);
+  --header-bg: rgb(250, 222, 185);
+  --green: #80ff88;
+  --blue: #80b7ff;
+  --card-gray: #999999;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* % and viewport units prevent horizontal scrolling */
+}
+
+body {
+  margin: 0;
+  background-color: var(--antique);
+  font-family: "Courier New", Courier, monospace;
+  color: #000;
+}
+
+img {
+  max-width: 100%; /* %: responsive image width */
+  height: auto; /* rem-based image sizing preserves its aspect ratio */
+  display: block;
+}
+
+.site-header {
+  width: 100%; /* %: full-width mobile header */
+  min-height: 5rem; /* rem: consistent header spacing */
+  padding: 0.75rem 1rem;
+  background-color: var(--header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 7vw, 3rem); /* vw and clamp(): fluid logo text */
+  white-space: nowrap;
+}
+
+.menu-button {
+  width: 2.75rem; /* rem: touch-friendly mobile menu */
+  height: 2.75rem;
+  padding: 0.55rem;
+  border: 0;
+  background: transparent;
+  display: grid;
+  align-content: space-around;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 100%; /* %: menu line spans the button */
+  height: 3px;
+  background: #000;
+  display: block;
+}
+
+.main-nav {
+  display: none;
+}
+
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  color: cadetblue;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+main {
+  background-color: var(--orange-bg);
+}
+
+.page-title {
+  margin: 0;
+  min-height: 3.7rem;
+  padding: 0.55rem 0.5rem;
+  border: 0 solid rgb(56, 41, 1);
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  font-size: clamp(1.15rem, 4.6vw, 2.2rem); /* vw and clamp(): responsive title */
+  line-height: 1.25;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-section {
+  margin: 0.8rem 0;
+  padding: clamp(1rem, 4vw, 3rem); /* vw and clamp(): scalable section padding */
+  border: 3px solid rgb(56, 41, 1);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  height: auto;
+}
+
+.info-left,
+.info-right {
+  border: 1px solid #000;
+  border-radius: 7px;
+  width: 100%; /* %: equal mobile card width */
+  padding: 0.75rem;
+}
+
+.info-left {
+  background-color: var(--green);
+  min-height: 16rem;
+}
+
+.info-right {
+  background-color: var(--blue);
+}
+
+.info-left h2,
+.info-right h3,
+.faq-section h3 {
+  margin: 0.75rem 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.info-left p,
+.info-right p,
+.faq-section p {
+  margin: 0.75rem 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.popular-courses {
+  width: min(100% - 2rem, 1100px); /* % and min(): constrained responsive width */
+  margin: 1.5rem auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  background-color: #cfcfcf;
+}
+
+.popular-courses h2 {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-size: clamp(1.25rem, 5vw, 1.75rem); /* vw and clamp(): section heading */
+}
+
+.popular-courses ul {
+  width: 100%; /* %: full-width course grid */
+  margin: 0;
+  padding: 0;
+  min-height: 20rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.popular-courses li {
+  width: 100%; /* %: cards fit the mobile column */
+  min-width: 0;
+  padding: 0.33rem;
+  border: 3px double #fc9da0;
+  border-radius: 10px;
+  background-color: var(--card-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.popular-courses li img {
+  width: 100%; /* %: fills each course card */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 0.3rem solid #fc9da0;
+  border-radius: 6px;
+}
+
+.popular-courses li p {
+  margin: 0.75rem 0;
+  font-size: 0.78rem;
+}
+
+.popular-courses a,
+.faq-section a {
+  color: cadetblue;
+  font-size: 0.94rem;
+  padding: 0.6em 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.faq-section {
+  margin: 0.8rem 0;
+  padding: clamp(1rem, 4vw, 3rem);
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+footer {
+  min-height: 5rem;
+  padding: 1rem;
+  background-color: rgb(117, 101, 82);
+  text-align: center;
+}
+
+footer p {
+  margin: 0 auto;
+  color: #cfcfcf;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* Tablet: 768px and wider */
+@media (min-width: 768px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: max(16rem, 30%) 1fr; /* rem and max(): reserves a fluid header area */
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+  }
+
+  .main-nav ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+
+  .main-nav li {
+    min-height: 2.75rem;
+  }
+
+  .page-title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem); /* vw and clamp(): tablet title */
+  }
+
+  .info-section {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+
+  .info-left {
+    width: 100%;
+  }
+
+  .popular-courses ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .popular-courses li {
+    width: 100%;
+  }
+
+  .faq-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: 1024px and wider */
+@media (min-width: 1024px) {
+  .site-header {
+    min-height: 4.9rem;
+    grid-template-columns: max(18rem, 30%) 1fr; /* rem and max(): desktop brand/nav split */
+  }
+
+  .site-header h1 {
+    padding-left: 0.2rem;
+  }
+
+  .main-nav ul {
+    width: min(100%, 42rem); /* rem and min(): nav width stops growing */
+    margin: 0 auto;
+  }
+
+  .main-nav li {
+    width: 25%;
+  }
+
+  .page-title {
+    min-height: 3.9rem;
+  }
+
+  .info-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  }
+
+  .info-left,
+  .info-right {
+    width: 100%;
+  }
+
+  .info-left {
+    min-height: 20.5rem;
+  }
+
+  .popular-courses {
+    max-width: 1100px;
+  }
+
+  .popular-courses ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .popular-courses li {
+    width: 100%;
+  }
+
+  .faq-section {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
